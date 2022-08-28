@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+
+    <header class = "header">
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <main class = "container-fluid">
+        <div class = "row">
+            <div class ="col-lg-3 search-side">
+                <form id = "citySearches">
+                    <h4>Search for a City</h2>
+                    <input id ="cityTyped" type = "text" class = "form-input"/>
+                    <button class = "searchBtn" type = "submit">Search</button>
+                </form>
+                <div id = "pastWeathers"></div>
+            </div>
+            <div class ="col-lg-9">
+                <div class = "row citySelected">
+                    <div>
+                        <h2 id ="cityShown"></h2>
+                        <div id = "currentWeather" class = "list-group"></div>
+                    </div>  
+                </div>
+                <div class = "row" id = "five-day-forecast">
+                        <h2 class = "col-lg-12" id = "forecast"></h2>
+                        <div id = "fiveDayForecast"></div>
+                </div>  
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <script src="./script.js"></script>
+    
+</body>
+</html>
