@@ -10,28 +10,32 @@
 </head>
 
 <body>
-
+<!-- Header -->
     <header class = "header">
         <h1>Weather Dashboard</h1>
     </header>
 
     <main class = "container-fluid">
         <div class = "row">
+            <!-- Searches Side -->
             <div class ="col-lg-3 search-side">
                 <form id = "citySearches">
                     <h4>Search for a City</h2>
                     <input id ="cityTyped" type = "text" class = "form-input"/>
                     <button class = "searchBtn" type = "submit">Search</button>
                 </form>
+                <!-- Shows past weather searches -->
                 <div id = "pastWeathers"></div>
             </div>
             <div class ="col-lg-8">
+                <!-- Shows the city typed and weather info of that city -->
                 <div class = "row citySelected">
                     <div>
                         <h2 id ="cityShown"></h2>
                         <div id = "currentWeather"></div>
                     </div>  
                 </div>
+                <!-- Five day forecast is shown below -->
                 <div class = "row" id = "five-day-forecast">
                         <h2 class = "col-lg-12" id = "forecast"></h2>
                         <div id = "fiveDayForecast"></div>

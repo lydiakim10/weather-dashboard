@@ -1,16 +1,20 @@
+/* Universal */
 * {
     margin: 2px;
 }
+
+/* Entire Body */
+body {
+    background-color: pink;
+}
+
 .header {
     background-color: darkblue;
     color: white;
     text-align: center;
 }
 
-body {
-    background-color: pink;
-}
-
+/* Searches Side */
 .search-side {
     border: 3px solid black;
     margin: 5px;
@@ -27,12 +31,14 @@ body {
     border: 2px solid red;
 }
 
+/* City Typed */
 .citySelected {
     border: 3px solid purple;
     background-color: white;
     margin: 5px;
 }
 
+/* Five Day Forecast */
 .card-body {
     background-color: white;
 }
@@ -50,6 +56,7 @@ body {
     padding: 5px;
 }
 
+/* UV Index color */
 .extreme{
     background-color: red;
     color:white;

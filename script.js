@@ -1,3 +1,4 @@
+// Query selectors and variables needed
 var citySearched = document.querySelector("#citySearches");
 var cityInput = document.querySelector("#cityTyped");
 var currWeather = document.querySelector("#currentWeather");
@@ -9,6 +10,7 @@ var apiKey = "1b02d41e0268828ef67ac94753c6a12d"
 
 var chosenCity = [];
 
+// When entering a city in the search bar
 var submitBtnEl = function(event){
     event.preventDefault();
     var city = cityInput.value;
@@ -24,10 +26,12 @@ var submitBtnEl = function(event){
     pastSearches(city);
 };
 
+// Saving the searched city into local storage
 var saveSearches = function(){
     localStorage.setItem("city", JSON.stringify(chosenCity));
 };
 
+// Obtaining the weather for the searched city
 var cityWeatherEl = function(city){
     var apiKey = "1b02d41e0268828ef67ac94753c6a12d"
     var apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
@@ -40,12 +44,13 @@ var cityWeatherEl = function(city){
     });
 };
 
+// Showing all of the information about the weather for the searched city
 var showWeather = function(weather, searchCity){
    currWeather.textContent= "";  
    cityGiven.textContent=searchCity;
 
    var currentDate = document.createElement("div")
-   currentDate.textContent=" (" + moment(weather.dt.value).format("MMM D, YYYY") + ") ";
+   currentDate.textContent=" (" + moment(weather.dt.value).format("MMM DD, YYYY") + ") ";
    cityGiven.appendChild(currentDate);
 
    var weatherIcon = document.createElement("img")
@@ -72,6 +77,7 @@ var showWeather = function(weather, searchCity){
    uvIndex(lat,lon)
 };
 
+// Getting the UV Index through coordinates
 var uvIndex = function(lat,lon){
     var apiKey = "1b02d41e0268828ef67ac94753c6a12d"
     var apiURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`
@@ -82,7 +88,8 @@ var uvIndex = function(lat,lon){
         });
     });
 };
- 
+
+// Showing the UV index and added classes based on the UV number
 var showUvIndex = function(index){
     var uvIndexEl = document.createElement("div");
     uvIndexEl.textContent = "UV Index: "
@@ -105,6 +112,7 @@ var showUvIndex = function(index){
     currWeather.appendChild(uvIndexEl);
 };
 
+// Obtaining weather information for the next five days of searched city
 var show5Day = function(city){
     var apiKey = "1b02d41e0268828ef67ac94753c6a12d"
     var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`
@@ -117,6 +125,7 @@ var show5Day = function(city){
     });
 };
 
+// Showing the five day forecast information on cards
 var fiveDayInfo = function(weather){
     fiveDayFore.textContent = ""
     fiveDayEl.textContent = "5-Day Forecast:";
@@ -130,7 +139,7 @@ var fiveDayInfo = function(weather){
        forecastEl.classList = "card";
 
        var forecastDate = document.createElement("h5")
-       forecastDate.textContent= moment.unix(dailyForecast.dt).format("MM DD, YYYY");
+       forecastDate.textContent= moment.unix(dailyForecast.dt).format("MMM DD, YYYY");
        forecastDate.classList = "card-header text-center"
        forecastEl.appendChild(forecastDate);
 
@@ -157,6 +166,7 @@ var fiveDayInfo = function(weather){
     };
 };
 
+// Past searches side on the left will appear in clickable buttons
 var pastSearches = function(pastSearches){
  
     pastSearchEl = document.createElement("button");
@@ -167,7 +177,7 @@ var pastSearches = function(pastSearches){
     pastWeathersEl.prepend(pastSearchEl);
 };
 
-
+// If user clicks a past searched city, it will navigate them back to the city they clicked on
 var pastSeachesBtn = function(event){
     var city = event.target.getAttribute("previous-city")
     if(city){
@@ -176,5 +186,6 @@ var pastSeachesBtn = function(event){
     };
 };
 
+// Creating event listeners when submit button and past searched cities are clicked on
 citySearched.addEventListener("submit", submitBtnEl);
 pastWeathersEl.addEventListener("click", pastSeachesBtn);
