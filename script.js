@@ -88,7 +88,7 @@ var showUvIndex = function(index){
     uvIndexEl.textContent = "UV Index: "
     uvIndexEl.classList = "temp-lists"
 
-    uvIndexValue = document.createElement("span")
+    uvIndexValue = document.createElement("div")
     uvIndexValue.textContent = index.value
 
     if(index.value <=2){
