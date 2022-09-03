@@ -1,10 +1,65 @@
+* {
+    margin: 2px;
+}
 .header {
     background-color: darkblue;
     color: white;
     text-align: center;
 }
 
+body {
+    background-color: pink;
+}
+
+.search-side {
+    border: 3px solid black;
+    margin: 5px;
+    background-color: white;
+}
+
+.past-results {
+    background-color: aquamarine;
+    border: 2px solid black;
+    margin: 3px;
+}
+
+.past-results:hover {
+    border: 2px solid red;
+}
+
+.citySelected {
+    border: 3px solid purple;
+    background-color: white;
+    margin: 5px;
+}
+
+.card-body {
+    background-color: white;
+}
+
 #fiveDayForecast {
     display: flex;
     flex-wrap: wrap;  
+    border: 3px solid green;
+    margin: 5px;
+    background-color: white;
+}
+
+.temp-lists {
+    display: flex;
+    padding: 5px;
+}
+
+.extreme{
+    background-color: red;
+    color:white;
+}
+
+.moderate{
+    background-color: yellow;
+}
+
+.good{
+    background-color: green;
+    color:white;
 }
